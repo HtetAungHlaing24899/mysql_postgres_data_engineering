@@ -7,6 +7,8 @@ def main():
     env = sys.argv[1]
     db_details = DB_DETAILS[env]
 
+    print(db_details)
+
     #getting table list from the csv
     tables = get_tables('../table_list.txt')
     for table in tables['table_name']:
