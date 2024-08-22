@@ -10,8 +10,10 @@ def main():
     db_details = load_db_details(env)
 
     #reading data from db
-    table_name = 'departments'
-    data, columns = read_table(db_details, table_name)
+    tables = get_tables('../table_list.txt')
+    for table_name in tables['table_name']:
+        data, columns = read_table(db_details, table_name)
+    
     for column in columns:
         print(column)
 
