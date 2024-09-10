@@ -23,3 +23,14 @@ DB_DETAILS = {
         },
     }
 }
+
+TYPE_MAPPING = {
+    'int': 'integer',
+    'bigint': 'bigint',
+    'varchar': 'varchar',
+    'varchar(255)' : 'varchar(255)',
+    'text': 'text',
+    'datetime': 'timestamp',
+    'tinyint(1)': 'boolean',
+    # Add more mappings as needed
+}
