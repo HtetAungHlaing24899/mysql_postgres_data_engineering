@@ -19,3 +19,19 @@ def insert_data(connection, cursor, query, data, batch_size = 100):
         count = count + 1
     cursor.executemany(query, recs)
     connection.commit()
+
+def load_table(DB_DETAILS, data, column_names, table_name):
+    TARGET_DB = DB_DETAILS['TARGET_DB']
+
+    connection = get_connection(db_type=TARGET_DB['DB_TYPE'],
+                          db_user=TARGET_DB['DB_USER'],
+                          db_password=TARGET_DB['DB_PASSWORD'],
+                          db_host=TARGET_DB['DB_HOST'],
+                          db_port=TARGET_DB['DB_PORT'],
+                          db_name=TARGET_DB['DB_NAME'])
+    
+    cursor = connection.cursor()
+    query = build_insert_query(table_name, column_names)
+    insert_data(connection, cursor, query, data)
+
+    connection.close()
