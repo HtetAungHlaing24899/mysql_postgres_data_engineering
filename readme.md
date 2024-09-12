@@ -25,13 +25,19 @@ POSTGRES_PASSWORD=your_postgres_password
 POSTGRES_DB=your_postgres_db
 ```
 3. Install the required Python packages:
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 ## Usage
 1. Start the MySQL and PostgreSQL docker containers by running the following command in terminal:
-```docker-compose up -d```
+```
+docker-compose up -d
+```
 2. Run the migration script:
-```python scripts/app.py dev```
+```
+python scripts/app.py dev
+```
 
 ## Source Repo
 https://github.com/dgadiraju/retail_db
