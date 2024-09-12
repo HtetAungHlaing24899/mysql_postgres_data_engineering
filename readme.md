@@ -35,6 +35,7 @@ POSTGRES_DB=your_postgres_db
 
 ## Source Repo
 https://github.com/dgadiraju/retail_db
+
 Full credits to the original developer.
 
 ## YouTube Course Link
