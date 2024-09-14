@@ -7,7 +7,7 @@ def build_create_query(table_name, column_names, column_types):
                 CREATE TABLE IF NOT EXISTS {table_name} ({create_column})
             '''
     
-    print(f'create query : {query}')
+    #print(f'create query : {query}')
     
     return query
 
