@@ -3,7 +3,7 @@ from config import DB_DETAILS, TYPE_MAPPING
 from util import get_tables
 from util import load_db_details
 from read import read_table, read_column_types
-from write import build_insert_query
+from write import load_table
 from create import create_table
 
 def main():
@@ -31,8 +31,9 @@ def main():
         create_table(db_details, table_name, column_names, column_types)
         print(f'completed creating table')
 
-        print(build_insert_query(table_name, columns))
+        #load data into postgres
         print(f'loading data for {table_name}')
+        load_table(db_details, data, column_names, table_name)
 
 
 if __name__ == '__main__':
