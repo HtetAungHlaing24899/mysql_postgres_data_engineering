@@ -1,5 +1,20 @@
 version: '3.7'
 services:
+    app:
+        image: htetaunghlaing240899/data_engineering_python:latest
+        container_name: python-app
+        env_file:
+            - .env
+        volumes:
+            - ${PWD}/scripts:/app/mysql_postgres_data_engineering/scripts
+            - ${PWD}/.env:/app/mysql_postgres_data_engineering/.env
+            - ${PWD}/table_list.txt:/app/mysql_postgres_data_engineering/table_list.txt
+        logging:
+            options:
+                max-size: 10m
+                max-file: "3"
+        networks:
+            - app-network
     postgres:
         image: postgres:9.6
         container_name: postgres-db
@@ -14,6 +29,8 @@ services:
             options:
                 max-size: 10m
                 max-file: "3"
+        networks:
+            - app-network
     mysql:
         image: mysql
         container_name: mysql-db
@@ -27,6 +44,11 @@ services:
         volumes:
             - ${PWD}/data:/var/lib/mysql/data/csv/
         command: --secure-file-priv=/var/lib/mysql/data/csv/
+        networks:
+            - app-network
+networks:
+    app-network:
+        driver: bridge
 
 
 
