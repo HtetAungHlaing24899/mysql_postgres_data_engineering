@@ -12,7 +12,7 @@ def main():
     db_details = load_db_details(env)
 
     #reading data from db
-    tables = get_tables('../table_list.txt')
+    tables = get_tables('./table_list.txt')
     for table_name in tables['table_name']:
         print(f'reading data for {table_name}')
 
